@@ -9,7 +9,7 @@ const LandingTemplate = () => {
   return (
     <Container>
       <HeaderContainer>
-        <Header />
+        <Header isWhite />
       </HeaderContainer>
       <FirstSection>
         <FirstContent>
@@ -280,7 +280,14 @@ const ThirdImgContainer = styled.div`
 `;
 
 const ThirdImgContainer_2 = styled.div`
-  width: 45%;
+  @media screen and (min-width: 900px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 900px) {
+    width: 55%;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const ThirdImg = styled.img`
@@ -324,7 +331,7 @@ const ThirdTitle = styled.div`
     margin-bottom: 60px;
   }
   @media screen and (max-width: 900px) {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 30px;
   }
 `;
@@ -339,7 +346,7 @@ const ThirdDesc = styled.div`
     margin-bottom: 40px;
   }
   @media screen and (max-width: 900px) {
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 25px;
   }
 `;
@@ -348,44 +355,78 @@ const FourthSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 607.3px;
   background-color: #f9f9f9;
-  padding: 100px 10% 0 10%;
+
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+    padding: 100px 10% 0 10%;
+  }
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const FourthDescContainer = styled.div`
-  width: 40%;
+  @media screen and (min-width: 900px) {
+    width: 40%;
+  }
 `;
 
 const FourthImgContainer = styled.div``;
 
 const FourthImg = styled.img`
-  width: 328px;
-  height: 143;
+  width: 70%;
+  height: 143px;
 `;
 
 const FourthDesc = styled.div`
-  font-size: 50px;
   font-weight: 600;
   letter-spacing: -0.77px;
   color: #2d2d2d;
   white-space: pre-wrap;
   margin-top: 20px;
-  padding-left: 15%;
-  margin-bottom: 60px;
+
+  @media screen and (min-width: 900px) {
+    font-size: 40px;
+    padding-left: 15%;
+    margin-bottom: 60px;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
 `;
 
 const FourthCardContainer = styled.div`
   display: flex;
-  width: 40%;
   padding-top: 5%;
-  margin-right: 10%;
+
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+    width: 40%;
+    margin-right: 10%;
+  }
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 const DummyImg = styled.img`
   width: 115px;
   height: 115px;
-  margin-top: 40%;
+
+  @media screen and (min-width: 900px) {
+    margin-top: 40%;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-top: 10%;
+    margin-bottom: 30px;
+    display: flex;
+    align-self: center;
+  }
 `;
 
 const FourthCard = styled.div`
@@ -393,16 +434,25 @@ const FourthCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  height: 60%;
+  height: 256px;
   min-width: 200px;
   border: 2px solid #000000;
   border-radius: 35px;
   padding: 5% 0;
-  margin-right: 20px;
-  box-shadow: rgba(145, 127, 229, 0.2) 0px 54px 55px,
+
+  box-shadow: rgba(1, 1, 2, 0.2) 0px 54px 55px,
     rgba(145, 127, 229, 0.2) 0px -12px 30px,
     rgba(145, 127, 229, 0.2) 0px 4px 6px, rgba(145, 127, 229, 0.2) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  @media screen and (min-width: 900px) {
+    margin-right: 20px;
+  }
+  @media screen and (max-width: 900px) {
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `;
 
 const FourthCardProfile = styled.div``;
@@ -420,7 +470,10 @@ const FourthCardTitle = styled.div`
 
 const FourthCardPosition = styled.div``;
 
-const FourthCardDesc = styled.div``;
+const FourthCardDesc = styled.div`
+  padding: 0 20px;
+  white-space: pre-wrap;
+`;
 
 const FifthSection = styled.div`
   display: flex;
@@ -435,26 +488,42 @@ const FifthCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 70%;
-  height: 60%;
   border: 3px solid black;
   border-radius: 30px;
-  padding: 30px 50px;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.77px;
+
+  @media screen and (min-width: 900px) {
+    width: 70%;
+    height: 60%;
+    padding: 30px 50px;
+  }
+  @media screen and (max-width: 900px) {
+    width: 90%;
+    height: 80%;
+    padding: 15px;
+  }
 `;
 
-const FifthCardTitle = styled.div``;
+const FifthCardTitle = styled.div`
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+  }
+`;
 
 const FifthCardEmailContainer = styled.div`
   display: flex;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const FifthCardEmailInput = styled.input`
   background: #fcbc14;
   border: none;
-  width: 35%;
+
   height: 50px;
   font-size: 14px;
   padding: 0 10px;
@@ -465,6 +534,15 @@ const FifthCardEmailInput = styled.input`
   ::-webkit-input-placeholder {
     color: #fffcf8;
   }
+
+  @media screen and (min-width: 900px) {
+    width: 35%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 `;
 
 const FifthCardEmailButton = styled.div`
@@ -474,7 +552,15 @@ const FifthCardEmailButton = styled.div`
   font-size: 16px;
   height: 50px;
   line-height: 50px;
-  width: 10%;
+
   border-radius: 30px;
   text-align: center;
+
+  @media screen and (min-width: 900px) {
+    width: 10%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
