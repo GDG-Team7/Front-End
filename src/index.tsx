@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import GlobalStyle from './utils/GlobalStyle'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import GlobalStyle from './utils/GlobalStyle';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,4 +9,4 @@ ReactDOM.render(
     <App />
   </React.StrictMode>,
   document.getElementById('root'),
-)
+);

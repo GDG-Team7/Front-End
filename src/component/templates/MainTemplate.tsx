@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const MainTemplate = () => {
-  return <div>MainTemplate</div>
+  return <div>MainTemplate</div>;
 }
 
-export default MainTemplate
+export default MainTemplate;
