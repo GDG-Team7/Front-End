@@ -66,6 +66,7 @@ const MainTemplate = () => {
 };
 
 export default MainTemplate;
+
 const Container = styled.div`
   min-width: 900px;
 `;
@@ -162,6 +163,7 @@ const RoomListHeader = styled.div`
 `;
 
 const RoomListTitle = styled.div``;
+
 const RoomListToggle = styled.div`
   display: flex;
 `;

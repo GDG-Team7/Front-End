@@ -165,5 +165,3 @@ const PlusButton = styled.img`
   border-radius: 50%;
   cursor: pointer;
 `;
-
-const PlusImage = styled.div``;
