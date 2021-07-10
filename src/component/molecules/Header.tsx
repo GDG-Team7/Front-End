@@ -40,8 +40,8 @@ const Circle = styled.div`
 `;
 
 const Title = styled.div`
-  line-height: 22px;
-  font-size: 22px;
+  line-height: 20px;
+  font-size: 20px;
 `;
 
 const Nav = styled.div``;
