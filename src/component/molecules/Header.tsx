@@ -27,5 +27,6 @@ const HeaderContainer = styled.div`
 const Nav = styled.div``;
 
 const NavItem = styled.span`
+  cursor: pointer;
   margin-right: 25px;
 `;
