@@ -19,6 +19,7 @@ const Container = styled.div`
   text-align: center;
   color: #fff;
 `;
+
 const Icon = styled.img`
   height: 17px;
   width: 17px;

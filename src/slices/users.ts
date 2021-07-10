@@ -19,6 +19,7 @@ export const users = createSlice({
     addUser(state, action: PayloadAction<User>) {
       action.payload.id = tempId++;
       // 업데이트 되는 State 를 return 해준다.
+
       return [...state, action.payload];
     },
   },
