@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Header = () => {
   return (
-    <Container>
+    <HeaderContainer>
       <TitleBox>
         <Circle></Circle>
         <Title>코각모</Title>
@@ -13,13 +13,13 @@ const Header = () => {
         <NavItem>Login</NavItem>
         <NavItem>My Page</NavItem>
       </Nav>
-    </Container>
+    </HeaderContainer>
   );
 };
 
 export default Header;
 
-const Container = styled.div`
+const HeaderContainer = styled.div`
   display: flex;
   padding: 3vh 12vw;
   justify-content: space-between;
