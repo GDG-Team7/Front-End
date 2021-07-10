@@ -16,4 +16,9 @@ export const STRING = {
   THIRD_CARD_TITLE_2: '자기계발 하느라,\n새로운 사람들\n만날 시간이 없었나요?',
   THIRD_CARD_DESC_2:
     '언제 어디서든 공부하면서\n새로운 사람들을 만나서\n업계에 관한 정보를 나눠보세요.',
+
+  LANDING_FOURTH_DESC: '따끈따끈 갓만든\n24시 스터디룸이\n기다리고 있어요.',
+  LANDING_FOURTH_CARD_DESC: '저희 방에서 함께 불금을\n달려보아요. 저희방에서',
+
+  LANDING_FIFTH_CARD_DESC: '서비스를 공유할 메일 주소를 입력해주세요.',
 };

@@ -1,6 +1,7 @@
 import first from '../assets/images/first.png';
 import fourth_1 from '../assets/images/fourth_1.png';
 import fourth_2 from '../assets/images/fourth_2.png';
+import fourth_profile from '../assets/images/fourth_profile.jpg';
 import github from '../assets/images/github.png';
 import second_1 from '../assets/images/second_1.png';
 import second_2 from '../assets/images/second_2.png';
@@ -18,4 +19,5 @@ export const IMAGES = {
   third_2: third_2,
   fourth_1: fourth_1,
   fourth_2: fourth_2,
+  fourth_profile: fourth_profile,
 };

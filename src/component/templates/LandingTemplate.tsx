@@ -58,8 +58,47 @@ const LandingTemplate = () => {
           <ThirdImg src={IMAGES.third_2} />
         </ThirdImgContainer_2>
       </ThirdSection>
-      <FourthSection></FourthSection>
-      <FifthSection></FifthSection>
+
+      <FourthSection>
+        <FourthDescContainer>
+          <FourthImgContainer>
+            <FourthImg src={IMAGES.fourth_1} />
+          </FourthImgContainer>
+          <FourthDesc>{STRING.LANDING_FOURTH_DESC}</FourthDesc>
+        </FourthDescContainer>
+
+        <FourthCardContainer>
+          <FourthCard>
+            <FourthCardProfile>
+              <FourthCardImg src={IMAGES.fourth_profile} />
+              <FourthCardTitle>김개발</FourthCardTitle>
+              <FourthCardPosition>Front-End</FourthCardPosition>
+            </FourthCardProfile>
+            <FourthCardDesc>{STRING.LANDING_FOURTH_CARD_DESC}</FourthCardDesc>
+          </FourthCard>
+
+          <FourthCard>
+            <FourthCardProfile>
+              <FourthCardImg src={IMAGES.fourth_profile} />
+              <FourthCardTitle>김개발</FourthCardTitle>
+              <FourthCardPosition>Front-End</FourthCardPosition>
+            </FourthCardProfile>
+            <FourthCardDesc>{STRING.LANDING_FOURTH_CARD_DESC}</FourthCardDesc>
+          </FourthCard>
+          <DummyImg src={IMAGES.fourth_2}></DummyImg>
+        </FourthCardContainer>
+      </FourthSection>
+
+      <FifthSection>
+        <FifthCard>
+          <FifthCardTitle>{STRING.LANDING_FIFTH_CARD_DESC}</FifthCardTitle>
+          <FifthCardEmailContainer>
+            <FifthCardEmailInput placeholder="Enter Your Email"></FifthCardEmailInput>
+            <FifthCardEmailButton>send</FifthCardEmailButton>
+          </FifthCardEmailContainer>
+        </FifthCard>
+      </FifthSection>
+
       <Footer />
     </Container>
   );
@@ -228,8 +267,133 @@ const ThirdDesc = styled.div`
 `;
 
 const FourthSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   height: 607.3px;
   background-color: #f9f9f9;
+  padding: 100px 10% 0 10%;
 `;
 
-const FifthSection = styled.div``;
+const FourthDescContainer = styled.div`
+  width: 40%;
+`;
+
+const FourthImgContainer = styled.div``;
+
+const FourthImg = styled.img`
+  width: 328px;
+  height: 143:
+`;
+
+const FourthDesc = styled.div`
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.77px;
+  color: #2d2d2d;
+  white-space: pre-wrap;
+  margin-top: 20px;
+  padding-left: 15%;
+  margin-bottom: 60px;
+`;
+
+const FourthCardContainer = styled.div`
+  display: flex;
+  width: 40%;
+  padding-top: 5%;
+  margin-right: 10%;
+`;
+
+const DummyImg = styled.img`
+  width: 115px;
+  height: 115px;
+  margin-top: 40%;
+`;
+
+const FourthCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height:60%;
+  min-width: 200px;
+  border: 2px solid #000000;
+  border-radius: 35px;
+  padding: 5%; 0;
+  margin-right:20px;
+  box-shadow: rgba(145, 127, 229, 0.2) 0px 54px 55px, rgba(145, 127, 229, 0.2) 0px -12px 30px, rgba(145, 127, 229, 0.2) 0px 4px 6px, rgba(145, 127, 229, 0.2) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+`;
+
+const FourthCardProfile = styled.div``;
+
+const FourthCardImg = styled.img`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+`;
+
+const FourthCardTitle = styled.div`
+  margin-top: 30px;
+`;
+
+const FourthCardPosition = styled.div``;
+
+const FourthCardDesc = styled.div``;
+
+const FifthSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300.3px;
+`;
+
+const FifthCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  height: 60%;
+  border: 3px solid black;
+  border-radius: 30px;
+  padding: 30px 50px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.77px;
+`;
+
+const FifthCardTitle = styled.div``;
+
+const FifthCardEmailContainer = styled.div`
+  display: flex;
+`;
+
+const FifthCardEmailInput = styled.input`
+  background: #fcbc14;
+  border: none;
+  width: 35%;
+  height: 50px;
+  font-size: 14px;
+  padding: 0 10px;
+  border-radius: 30px;
+  margin-right: 10px;
+  outline: none;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #fffcf8;
+  }
+`;
+
+const FifthCardEmailButton = styled.div`
+  cursor: pointer;
+  background: #fcbc14;
+  color: #2d2e2e;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  width: 10%;
+  border-radius: 30px;
+  text-align: center;
+`;
