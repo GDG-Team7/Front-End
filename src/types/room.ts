@@ -6,7 +6,7 @@ export type RoomId = number;
 export interface Room {
   id: RoomId;
   title: string;
-  writer: UserId;
+  userId: UserId;
   created_at: string;
   member_limit: number;
   start_time: string;
@@ -14,5 +14,5 @@ export interface Room {
   language: string;
   annual_min?: number;
   annual_max?: number;
-  image?: string;
+  image_url?: string;
 }

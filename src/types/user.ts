@@ -2,7 +2,7 @@ export type UserId = string;
 
 export interface User {
   id?: UserId;
-  githubId?: number;
+  github_id?: number;
   email?: string;
   age?: number;
   annual?: number;
