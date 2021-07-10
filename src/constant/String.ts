@@ -21,4 +21,5 @@ export const STRING = {
   LANDING_FOURTH_CARD_DESC: '저희 방에서 함께 불금을\n달려보아요. 저희방에서',
 
   LANDING_FIFTH_CARD_DESC: '서비스를 공유할 메일 주소를 입력해주세요.',
+  MYINFO_INTRO_DESC: '방의 메인이미지로\n프로필 이미지가 등록됩니다.',
 };

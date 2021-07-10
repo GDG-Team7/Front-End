@@ -361,7 +361,7 @@ const FourthImgContainer = styled.div``;
 
 const FourthImg = styled.img`
   width: 328px;
-  height: 143:
+  height: 143;
 `;
 
 const FourthDesc = styled.div`
@@ -393,13 +393,16 @@ const FourthCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  height:60%;
+  height: 60%;
   min-width: 200px;
   border: 2px solid #000000;
   border-radius: 35px;
-  padding: 5%; 0;
-  margin-right:20px;
-  box-shadow: rgba(145, 127, 229, 0.2) 0px 54px 55px, rgba(145, 127, 229, 0.2) 0px -12px 30px, rgba(145, 127, 229, 0.2) 0px 4px 6px, rgba(145, 127, 229, 0.2) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 5% 0;
+  margin-right: 20px;
+  box-shadow: rgba(145, 127, 229, 0.2) 0px 54px 55px,
+    rgba(145, 127, 229, 0.2) 0px -12px 30px,
+    rgba(145, 127, 229, 0.2) 0px 4px 6px, rgba(145, 127, 229, 0.2) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
 
 const FourthCardProfile = styled.div``;

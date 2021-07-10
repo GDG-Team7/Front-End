@@ -5,6 +5,7 @@ import fourth_2 from '../assets/images/fourth_2.png';
 import fourth_profile from '../assets/images/fourth_profile.png';
 import github from '../assets/images/github.png';
 import minus_button from '../assets/images/minus_button.png';
+import myInfo_icon from '../assets/images/myInfo_icon.png';
 import plus_button from '../assets/images/plus_button.png';
 import room_profile from '../assets/images/room_profile.png';
 import second_1 from '../assets/images/second_1.png';
@@ -36,4 +37,5 @@ export const IMAGES = {
   minus_button: minus_button,
   clock: clock,
   user_count_icon: user_count_icon,
+  myInfo_icon: myInfo_icon,
 };
