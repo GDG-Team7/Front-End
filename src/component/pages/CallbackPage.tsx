@@ -46,7 +46,7 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
           },
         );
 
-        dispatch(setUser({githubId: data.id, email: data.email})); // Update UserStore
+        dispatch(setUser({github_id: data.id, email: data.email})); // Update UserStore
 
         history.push('/');
       } catch (error) {
