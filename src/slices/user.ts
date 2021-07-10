@@ -1,12 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-
-export interface User {
-  id?: number;
-  githubId?: number;
-  email?: string;
-  age?: number;
-  annual?: number;
-}
+import {User} from '../types/user';
 
 export const initialState: User = {};
 
