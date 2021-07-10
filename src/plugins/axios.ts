@@ -1,6 +1,6 @@
-import axios, {AxiosRequestConfig} from 'axios';
+import axios from 'axios';
 
-const baseURL: string = 'http://localhost:5000';
+const baseURL = process.env.REACT_APP_API_URL;
 const timeout: number = 1000 * 5;
 
 const request = axios.create({

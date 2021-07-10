@@ -4,7 +4,10 @@ import {IMAGES} from '../../constant/Images';
 
 const LoginButton = () => {
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        location.href = process.env.REACT_APP_GITHUB_CALLBACK as string;
+      }}>
       <Icon src={IMAGES.github} alt={'icon'} />
       <Desc>Login with Github</Desc>
     </Container>
@@ -18,6 +21,7 @@ const Container = styled.div`
   padding: 6px 12px;
   text-align: center;
   color: #fff;
+  cursor: pointer;
 `;
 
 const Icon = styled.img`
