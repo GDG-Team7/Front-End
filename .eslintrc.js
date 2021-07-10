@@ -28,6 +28,13 @@ module.exports =  {
     tsconfigRootDir: "./",
   },
   rules:  {
+    "prettier/prettier": 
+    [
+      "error", 
+      { 
+        "endOfLine": "auto" 
+      }
+    ],
     'padding-line-between-statements': [
       'warn',
       { blankLine: 'always', prev: '*', next: 'return' },
