@@ -1,13 +1,22 @@
 import qs from 'qs';
 import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import {RouteComponentProps} from 'react-router-dom';
 import request from '../../plugins/axios';
+import {setUser} from '../../slices/user';
 
 interface AccessToken {
   accessToken: string;
 }
 
+interface GitHubResponse {
+  id: number;
+  email: string;
+}
+
 const CallbackPage = ({history, location}: RouteComponentProps) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     async function getToken() {
       const {code} = qs.parse(location.search, {
@@ -27,14 +36,26 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
          * 2. Post to our api for saving user data
          * 3. history push
          */
-        history.push('/main');
+
+        const {data} = await request.get<GitHubResponse>(
+          'https://api.github.com/user',
+          {
+            headers: {
+              Authorization: `token ${accessToken}`,
+            },
+          },
+        );
+
+        dispatch(setUser({githubId: data.id, email: data.email})); // Update UserStore
+
+        history.push('/');
       } catch (error) {
         history.push('/error');
       }
     }
 
     getToken();
-  }, [location, history]);
+  }, [location, history, dispatch]);
 
   return null;
 };
