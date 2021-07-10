@@ -2,9 +2,14 @@ import React from 'react';
 import {useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
+import {IMAGES} from '../../constant/Images';
 import TitleTemplate from '../templates/TitleTemplate';
 
-const Header = () => {
+export interface Props {
+  isSearch?: boolean;
+}
+
+const Header = (props: Props) => {
   const history = useHistory();
   const loggedIn = localStorage.getItem('accessToken');
 
@@ -27,6 +32,12 @@ const Header = () => {
   return (
     <HeaderContainer>
       <TitleTemplate />
+      {props.isSearch && (
+        <SearchContainer>
+          <SearchInput placeholder="SEARCH" />
+          <SearchIcon src={IMAGES.search} />
+        </SearchContainer>
+      )}
       <Nav>
         <NavItem onClick={onClickStudy}>Study</NavItem>
         {!loggedIn && <NavItem>Login</NavItem>}
@@ -44,26 +55,65 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   color: #ffffff;
 
-  @media screen and (min-width: 515px) {
+  @media screen and (min-width: 900px) {
     padding: 3vh 12vw;
   }
-  @media screen and (max-width: 515px) {
+  @media screen and (max-width: 900px) {
     padding: 10px;
   }
 `;
 
 const Nav = styled.div`
-  @media screen and (max-width: 515px) {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 900px) {
     margin-left: 10px;
   }
 `;
 
 const NavItem = styled.span`
   cursor: pointer;
-  @media screen and (min-width: 515px) {
+  @media screen and (min-width: 900px) {
     margin-right: 25px;
   }
-  @media screen and (max-width: 515px) {
+  @media screen and (max-width: 900px) {
     margin-right: 15px;
+  }
+`;
+
+const SearchContainer = styled.div`
+  @media screen and (min-width: 900px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 900px) {
+    width: 40%;
+  }
+`;
+const SearchInput = styled.input`
+  background: #ffffff;
+  border: none;
+  width: 100%;
+  height: 54px;
+  font-size: 14px;
+  padding: 0 20px;
+  border-radius: 37px;
+  outline: none;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: #a6adb4;
+  }
+`;
+
+const SearchIcon = styled.img`
+  width: 17.9px;
+  height: 17.9px;
+  cursor: pointer;
+  position: relative;
+  bottom: 35px;
+  @media screen and (min-width: 800px) {
+    left: 92%;
+  }
+  @media screen and (max-width: 800px) {
+    left: 85%;
   }
 `;

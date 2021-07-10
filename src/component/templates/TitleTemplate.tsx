@@ -14,6 +14,7 @@ export default TitleTemplate;
 
 const TitleBox = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const Circle = styled.div`
