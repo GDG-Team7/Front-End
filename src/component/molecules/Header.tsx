@@ -9,6 +9,7 @@ import TitleTemplate from '../templates/TitleTemplate';
 export interface Props {
   isSearch?: boolean;
   isWhite?: boolean;
+  isMain?: boolean;
 }
 
 const Header = (props: Props) => {
@@ -34,9 +35,17 @@ const Header = (props: Props) => {
 
   return (
     <>
-      <HeaderContainer backColor={props.isWhite ? '#ffffff' : undefined}>
+      <HeaderContainer
+        style={{minWidth: props.isMain ? 900 : undefined}}
+        backColor={props.isWhite ? '#ffffff' : undefined}>
         <TitleTemplate />
-        {props.isSearch && width > 600 && (
+        {props.isMain && (
+          <SearchContainer>
+            <SearchInput placeholder="SEARCH" />
+            <SearchIcon src={IMAGES.search} />
+          </SearchContainer>
+        )}
+        {!props.isMain && props.isSearch && width > 600 && (
           <SearchContainer>
             <SearchInput placeholder="SEARCH" />
             <SearchIcon src={IMAGES.search} />
@@ -48,7 +57,7 @@ const Header = (props: Props) => {
           <NavItem onClick={onClickMyPage}>My Page</NavItem>
         </Nav>
       </HeaderContainer>
-      {props.isSearch && width < 600 && (
+      {props.isSearch && width < 600 && !props.isMain && (
         <SearchMobileContainer>
           <SearchInput placeholder="SEARCH" />
           <SearchIcon src={IMAGES.search} />
