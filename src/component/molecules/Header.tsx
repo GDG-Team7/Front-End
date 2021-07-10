@@ -1,15 +1,36 @@
 import React from 'react';
+import {useCallback} from 'react';
+import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import TitleTemplate from '../templates/TitleTemplate';
 
 const Header = () => {
+  const history = useHistory();
+  const loggedIn = localStorage.getItem('accessToken');
+
+  const onClickStudy = useCallback(() => {
+    if (loggedIn) {
+      history.push('/');
+    } else {
+      console.log('로그인해');
+    }
+  }, [history, loggedIn]);
+
+  const onClickMyPage = useCallback(() => {
+    if (loggedIn) {
+      history.push('/profile');
+    } else {
+      console.log('로그인해');
+    }
+  }, [history, loggedIn]);
+
   return (
     <HeaderContainer>
       <TitleTemplate />
       <Nav>
-        <NavItem>Study</NavItem>
-        <NavItem>Login</NavItem>
-        <NavItem>My Page</NavItem>
+        <NavItem onClick={onClickStudy}>Study</NavItem>
+        {!loggedIn && <NavItem>Login</NavItem>}
+        <NavItem onClick={onClickMyPage}>My Page</NavItem>
       </Nav>
     </HeaderContainer>
   );
