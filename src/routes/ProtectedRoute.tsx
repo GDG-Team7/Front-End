@@ -13,7 +13,7 @@ const ProtectedRoute = (props: ProtectedRouteProps) => {
   return loggedIn ? (
     <Route path={props.path} exact={props.exact} component={props.component} />
   ) : (
-    <Redirect to="/landing" />
+    <Route path={props.path} exact={props.exact} component={props.component} />
   );
 };
 

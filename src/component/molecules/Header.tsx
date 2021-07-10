@@ -3,15 +3,18 @@ import {useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 import {IMAGES} from '../../constant/Images';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import TitleTemplate from '../templates/TitleTemplate';
 
 export interface Props {
   isSearch?: boolean;
+  isWhite?: boolean;
 }
 
 const Header = (props: Props) => {
   const history = useHistory();
   const loggedIn = localStorage.getItem('accessToken');
+  const {width} = useWindowDimensions();
 
   const onClickStudy = useCallback(() => {
     if (loggedIn) {
@@ -29,32 +32,42 @@ const Header = (props: Props) => {
     }
   }, [history, loggedIn]);
 
+  console.log('width:', width);
+
   return (
-    <HeaderContainer>
-      <TitleTemplate />
-      {props.isSearch && (
-        <SearchContainer>
+    <>
+      <HeaderContainer backColor={props.isWhite ? '#ffffff' : undefined}>
+        <TitleTemplate />
+        {props.isSearch && width > 600 && (
+          <SearchContainer>
+            <SearchInput placeholder="SEARCH" />
+            <SearchIcon src={IMAGES.search} />
+          </SearchContainer>
+        )}
+        <Nav>
+          <NavItem onClick={onClickStudy}>Study</NavItem>
+          {!loggedIn && <NavItem>Login</NavItem>}
+          <NavItem onClick={onClickMyPage}>My Page</NavItem>
+        </Nav>
+      </HeaderContainer>
+      {props.isSearch && width < 600 && (
+        <SearchMobileContainer>
           <SearchInput placeholder="SEARCH" />
           <SearchIcon src={IMAGES.search} />
-        </SearchContainer>
+        </SearchMobileContainer>
       )}
-      <Nav>
-        <NavItem onClick={onClickStudy}>Study</NavItem>
-        {!loggedIn && <NavItem>Login</NavItem>}
-        <NavItem onClick={onClickMyPage}>My Page</NavItem>
-      </Nav>
-    </HeaderContainer>
+    </>
   );
 };
 
 export default Header;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<{backColor: string | undefined}>`
   display: flex;
 
   justify-content: space-between;
-  color: #ffffff;
-
+  color: ${({backColor}) => backColor};
+  align-items: baseline;
   @media screen and (min-width: 900px) {
     padding: 3vh 12vw;
   }
@@ -65,7 +78,6 @@ const HeaderContainer = styled.div`
 
 const Nav = styled.div`
   display: flex;
-  align-items: center;
   @media screen and (max-width: 900px) {
     margin-left: 10px;
   }
@@ -85,13 +97,20 @@ const SearchContainer = styled.div`
   @media screen and (min-width: 900px) {
     width: 50%;
   }
+
   @media screen and (max-width: 900px) {
     width: 40%;
   }
 `;
+
+const SearchMobileContainer = styled.div`
+  margin-top: 10px;
+  width: 50%;
+  margin-left: 48%;
+`;
 const SearchInput = styled.input`
   background: #ffffff;
-  border: none;
+  border: 2px solid #ebeded;
   width: 100%;
   height: 54px;
   font-size: 14px;

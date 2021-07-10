@@ -9,7 +9,7 @@ const LandingTemplate = () => {
   return (
     <Container>
       <HeaderContainer>
-        <Header />
+        <Header isWhite />
       </HeaderContainer>
       <FirstSection>
         <FirstContent>
