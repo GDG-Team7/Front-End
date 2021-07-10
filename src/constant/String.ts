@@ -19,6 +19,7 @@ export const STRING = {
 
   LANDING_FOURTH_DESC: '따끈따끈 갓만든\n24시 스터디룸이\n기다리고 있어요.',
   LANDING_FOURTH_CARD_DESC: '저희 방에서 함께 불금을\n달려보아요. 저희방에서',
-
   LANDING_FIFTH_CARD_DESC: '서비스를 공유할 메일 주소를 입력해주세요.',
+
+  MAIN_TITLE: '함께 열정을 불태울 크루들을 찾아보세요',
 };

@@ -32,8 +32,6 @@ const Header = (props: Props) => {
     }
   }, [history, loggedIn]);
 
-  console.log('width:', width);
-
   return (
     <>
       <HeaderContainer backColor={props.isWhite ? '#ffffff' : undefined}>
@@ -108,6 +106,7 @@ const SearchMobileContainer = styled.div`
   width: 50%;
   margin-left: 48%;
 `;
+
 const SearchInput = styled.input`
   background: #ffffff;
   border: 2px solid #ebeded;
