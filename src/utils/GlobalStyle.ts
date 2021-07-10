@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
+    font-family: Pretendard;
   }
 
   * {

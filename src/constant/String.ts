@@ -1,7 +1,7 @@
 export const STRING = {
   LANDING_FIRST_TITLE: '코각모',
   LANDING_FIRST_DESC:
-    '내일을 위해 오늘도 공부로 시간을 채우시나요?\n사람들과 함께 해보세요.\n혼자서 공부힐때보다, \n같이 모여서 할때 더 재밌고 잘 할 수 있어요!',
+    '내일을 위해 오늘도 공부로 시간을 채우시나요?\n사람들과 함께 해보세요.\n혼자서 공부할때보다, \n같이 모여서 할때 더 재밌고 잘 할 수 있어요!',
   LANDING_FIRST_BUTTON: 'Get Started',
 
   SECOND_CARD_TITLE_1: '집중력 증가',
