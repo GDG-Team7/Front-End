@@ -5,6 +5,7 @@ import {OPTIONS} from '../../constant/Dropdown';
 import {IMAGES} from '../../constant/Images';
 import {STRING} from '../../constant/String';
 import Header from '../molecules/Header';
+import MainRoomCard from '../molecules/MainRoomCard';
 
 const MainTemplate = () => {
   return (
@@ -41,6 +42,25 @@ const MainTemplate = () => {
           <CurationExit src={IMAGES.remove} />
         </Curation>
       </CurationContainer>
+      <RoomListContainer>
+        <RoomListHeader>
+          <RoomListTitle>검색결과 (33)</RoomListTitle>
+          <RoomListToggle>
+            <RoomListToggleItem>최신순</RoomListToggleItem>|
+            <RoomListToggleItem>정확도순</RoomListToggleItem>|
+            <RoomListToggleItem>모임종료</RoomListToggleItem>
+          </RoomListToggle>
+        </RoomListHeader>
+        <RoomListBody>
+          <MainRoomCard />
+          <MainRoomCard />
+          <MainRoomCard />
+          <MainRoomCard />
+          <MainRoomCard />
+          <MainRoomCard />
+          <MainRoomCard />
+        </RoomListBody>
+      </RoomListContainer>
     </Container>
   );
 };
@@ -134,4 +154,28 @@ const CurationExit = styled.img`
   margin-left: 10px;
   width: 14px;
   height: 14px;
+`;
+
+const RoomListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const RoomListTitle = styled.div``;
+const RoomListToggle = styled.div`
+  display: flex;
+`;
+
+const RoomListToggleItem = styled.div`
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
+const RoomListContainer = styled.div``;
+
+const RoomListBody = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
 `;
