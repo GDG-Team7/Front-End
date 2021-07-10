@@ -22,4 +22,5 @@ export const STRING = {
   LANDING_FIFTH_CARD_DESC: '서비스를 공유할 메일 주소를 입력해주세요.',
 
   MAIN_TITLE: '함께 열정을 불태울 크루들을 찾아보세요',
+  MYINFO_INTRO_DESC: '방의 메인이미지로\n프로필 이미지가 등록됩니다.',
 };

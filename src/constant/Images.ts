@@ -7,6 +7,7 @@ import fourth_profile from '../assets/images/fourth_profile.png';
 import github from '../assets/images/github.png';
 import mainIcon from '../assets/images/mainIcon.png';
 import minus_button from '../assets/images/minus_button.png';
+import myInfo_icon from '../assets/images/myInfo_icon.png';
 import plus_button from '../assets/images/plus_button.png';
 import punch from '../assets/images/punch.png';
 import remove from '../assets/images/remove.png';
@@ -46,4 +47,5 @@ export const IMAGES = {
   minus_button: minus_button,
   clock: clock,
   user_count_icon: user_count_icon,
+  myInfo_icon: myInfo_icon,
 };
