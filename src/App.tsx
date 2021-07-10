@@ -1,12 +1,20 @@
 import React from 'react';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
+import Landing from './component/pages/LandingPage';
 import Main from './component/pages/MainPage';
 
 const App = () => {
+  const loggedIn = localStorage.getItem('isAuthenticated');
+
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Main} exact />
+        <Route path="/landing" component={Landing} />
+        {loggedIn ? (
+          <Route path={'/main'} exact={true} component={Main} />
+        ) : (
+          <Redirect to="/landing" />
+        )}
       </Switch>
     </BrowserRouter>
   );
