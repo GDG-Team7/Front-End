@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 import {OPTIONS} from '../../constant/Dropdown';
@@ -52,12 +53,6 @@ const MainTemplate = () => {
           </RoomListToggle>
         </RoomListHeader>
         <RoomListBody>
-          <MainRoomCard />
-          <MainRoomCard />
-          <MainRoomCard />
-          <MainRoomCard />
-          <MainRoomCard />
-          <MainRoomCard />
           <MainRoomCard />
         </RoomListBody>
       </RoomListContainer>

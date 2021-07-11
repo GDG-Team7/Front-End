@@ -1,9 +1,67 @@
 import React from 'react';
+import {useState} from 'react';
 import styled from 'styled-components';
 import {IMAGES} from '../../constant/Images';
 import {STRING} from '../../constant/String';
+import request from '../../plugins/axios';
 
 const RegisterRoomPage = () => {
+  const [title, setTitle] = useState<string>();
+  const [memberLimit, setMemberLimit] = useState<number>(0);
+  const [startTime, setStartTime] = useState<string>();
+  const [endTime, setEndTime] = useState<string>();
+  const [language, setLanguage] = useState<string>();
+  const [annual_max, setAnnualMax] = useState<number>();
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleMemberLimit = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setMemberLimit(+e.target.value);
+  };
+
+  const handleStartTime = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setStartTime(e.target.value);
+  };
+
+  const handleEndTime = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setEndTime(e.target.value);
+  };
+
+  const handleLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLanguage(e.target.value);
+  };
+
+  const handleAnnualMin = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setAnnualMax(+e.target.value);
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    const roomInfo = {
+      title: title,
+      member_limit: memberLimit,
+      start_time: startTime,
+      end_time: endTime,
+      language: language,
+      annual_min: 0,
+      annual_max: annual_max,
+      authData: 0,
+    };
+
+    request
+      .post('/room', roomInfo)
+      .then(({data}) => {
+        // 방 입장 로직 필요
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <Container>
       <Title>방 개설하기</Title>
@@ -17,40 +75,54 @@ const RegisterRoomPage = () => {
         <MainContent>
           <TitleBox>
             <ItemTitle>방제목</ItemTitle>
-            <ItemInput placeholder="입력해주세요" />
+            <ItemInput
+              placeholder="입력해주세요"
+              onChange={handleTitleChange}
+            />
           </TitleBox>
 
           <SelectLine>
             <TitleBox>
               <ItemTitle>인원선택</ItemTitle>
-              <ItemSelect>
+              <ItemSelect onChange={handleMemberLimit}>
                 <option value="">Select...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
               </ItemSelect>
             </TitleBox>
             <TitleBox>
-              <ItemTitle>인원선택</ItemTitle>
-              <ItemSelect>
+              <ItemTitle>모임시작일시</ItemTitle>
+              <ItemSelect onChange={handleStartTime}>
                 <option value="">Select...</option>
+                <option value="2021-07-11">2021-07-11</option>
               </ItemSelect>
             </TitleBox>
             <TitleBox>
-              <ItemTitle>모임기간</ItemTitle>
-              <ItemSelect>
+              <ItemTitle>모임종료일시</ItemTitle>
+              <ItemSelect onChange={handleEndTime}>
                 <option value="">Select...</option>
+                <option value="2021-07-12">2021-07-12</option>
               </ItemSelect>
             </TitleBox>
           </SelectLine>
           <SelectLine>
             <TitleBox>
               <ItemTitle>사용언어</ItemTitle>
-              <Language>
+              <Language onChange={handleLanguage}>
                 <option value="">Select...</option>
+                <option>Javascript</option>
+                <option>Python</option>
+                <option>Ruby</option>
               </Language>
             </TitleBox>
             <TitleBox>
               <ItemTitle>연차</ItemTitle>
-              <ItemSelect>
+              <ItemSelect onChange={handleAnnualMin}>
                 <option value="">Select...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
               </ItemSelect>
             </TitleBox>
           </SelectLine>
@@ -66,7 +138,7 @@ const RegisterRoomPage = () => {
               <ItemInputLink placeholder="한 줄로 입력해주세요."></ItemInputLink>
             </TitleBox>
           </SelectLine>
-          <SubmitButtom>방 개설하기</SubmitButtom>
+          <SubmitButtom onClick={handleSubmit}>방 개설하기</SubmitButtom>
         </MainContent>
       </Contents>
     </Container>
