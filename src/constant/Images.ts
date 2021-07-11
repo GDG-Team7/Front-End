@@ -11,6 +11,7 @@ import mainIcon from '../assets/images/mainIcon.png';
 import minus_button from '../assets/images/minus_button.png';
 import myInfo_icon from '../assets/images/myInfo_icon.png';
 import plus_button from '../assets/images/plus_button.png';
+import profile from '../assets/images/profile.png';
 import punch from '../assets/images/punch.png';
 import remove from '../assets/images/remove.png';
 import room_profile from '../assets/images/room_profile.png';
@@ -42,6 +43,7 @@ export const IMAGES = {
   punch,
   remove,
   room_profile,
+  profile,
   sub_proflie_1: sub_profile_1,
   sub_proflie_2: sub_profile_2,
   sub_proflie_3: sub_profile_3,

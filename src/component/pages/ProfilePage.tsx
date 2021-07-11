@@ -1,7 +1,8 @@
 import React from 'react';
+import ProfileTemplate from '../templates/ProfileTemplate';
 
 const ProfilePage = () => {
-  return <div>ProfilePage</div>;
+  return <ProfileTemplate />;
 };
 
 export default ProfilePage;

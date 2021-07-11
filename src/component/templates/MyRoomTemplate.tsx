@@ -15,7 +15,7 @@ const MyRoomTemplate = (props: Props) => {
         <Content>
           <UserContent>
             <Profile>
-              <ProfileImg src={IMAGES.punch} />
+              <ProfileImg src={IMAGES.profile} />
               <ProfileTitle>개설자 정보</ProfileTitle>
               <DefaultLine />
 
