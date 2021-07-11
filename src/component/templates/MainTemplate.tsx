@@ -1,14 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useEffect} from 'react';
 import Select from 'react-select';
 import styled from 'styled-components';
 import {OPTIONS} from '../../constant/Dropdown';
 import {IMAGES} from '../../constant/Images';
 import {STRING} from '../../constant/String';
+import request from '../../plugins/axios';
+import {Room} from '../../types/room';
 import Header from '../molecules/Header';
 import MainRoomCard from '../molecules/MainRoomCard';
 
 const MainTemplate = () => {
+  const [roomList, setRoomList] = useState<Room[]>([]);
+
+  useEffect(() => {
+    const getRoomList = async () => {
+      const {data} = await request.get('/rooms');
+      setRoomList(data.rooms);
+    };
+
+    getRoomList();
+  }, []);
   return (
     <Container>
       <Header isSearch isMain />
@@ -53,7 +65,16 @@ const MainTemplate = () => {
           </RoomListToggle>
         </RoomListHeader>
         <RoomListBody>
-          <MainRoomCard />
+          {roomList.map((room: Room, index: number) => {
+            return (
+              <MainRoomCard
+                key={index}
+                id={room.id}
+                title={room.title}
+                member_limit={index}
+              />
+            );
+          })}
         </RoomListBody>
       </RoomListContainer>
     </Container>

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import {IMAGES} from '../../constant/Images';
+import {Room} from '../../types/room';
 
-const MainRoomCard = () => {
+const MainRoomCard = ({id, title}: Room) => {
   return (
     <CardContainer>
       <Label>ON</Label>
@@ -11,12 +12,10 @@ const MainRoomCard = () => {
         <ProfileSubImage src={IMAGES.sub_proflie_1} />
         <ProfileSubImage2 src={IMAGES.sub_proflie_2} />
       </ProfileImageContainer>
-      <UserNickName>닉네임이즈</UserNickName>
+      <UserNickName>{id}</UserNickName>
       <RoomInfo>
-        <RoomTitle>방이름 입니다.</RoomTitle>
-        <RoomDesc>
-          짧은 소개글 짧은소개글 짧은짧은 소개글 짧은소개글 짧은짧은
-        </RoomDesc>
+        <RoomTitle>{title}</RoomTitle>
+        <RoomDesc>설명추가...</RoomDesc>
       </RoomInfo>
       <BottomBar>
         <BottomRoomInfo>
@@ -26,7 +25,7 @@ const MainRoomCard = () => {
           </InfoBox>
           <InfoBox>
             <UsrCountIcon src={IMAGES.user_count_icon} />
-            <PersonnelCount>8/10</PersonnelCount>
+            <PersonnelCount>3/10</PersonnelCount>
           </InfoBox>
         </BottomRoomInfo>
         <PlusButton src={IMAGES.plus_button} />
