@@ -5,6 +5,8 @@ import fourth_1 from '../assets/images/fourth_1.png';
 import fourth_2 from '../assets/images/fourth_2.png';
 import fourth_profile from '../assets/images/fourth_profile.png';
 import github from '../assets/images/github.png';
+import githubButton from '../assets/images/githubButton.png';
+import login from '../assets/images/login.png';
 import mainIcon from '../assets/images/mainIcon.png';
 import minus_button from '../assets/images/minus_button.png';
 import myInfo_icon from '../assets/images/myInfo_icon.png';
@@ -39,7 +41,7 @@ export const IMAGES = {
   mainIcon,
   punch,
   remove,
-  room_profile: room_profile,
+  room_profile,
   sub_proflie_1: sub_profile_1,
   sub_proflie_2: sub_profile_2,
   sub_proflie_3: sub_profile_3,
@@ -48,4 +50,6 @@ export const IMAGES = {
   clock: clock,
   user_count_icon: user_count_icon,
   myInfo_icon: myInfo_icon,
+  githubButton,
+  login,
 };

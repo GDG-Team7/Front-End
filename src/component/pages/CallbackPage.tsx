@@ -48,7 +48,15 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
 
         dispatch(setUser({github_id: data.id, email: data.email})); // Update UserStore
 
-        history.push('/');
+        const isUser = await request.get<{member: string}>(
+          `/signin/${data.id}`,
+        );
+
+        if (isUser.data.member === 'false') {
+          history.push('/signup');
+        } else {
+          history.push('/');
+        }
       } catch (error) {
         history.push('/error');
       }

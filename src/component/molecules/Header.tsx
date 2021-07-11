@@ -53,7 +53,14 @@ const Header = (props: Props) => {
         )}
         <Nav>
           <NavItem onClick={onClickStudy}>Study</NavItem>
-          {!loggedIn && <NavItem>Login</NavItem>}
+          {!loggedIn && (
+            <NavItem
+              onClick={() => {
+                history.push('/login');
+              }}>
+              Login
+            </NavItem>
+          )}
           <NavItem onClick={onClickMyPage}>My Page</NavItem>
         </Nav>
       </HeaderContainer>
