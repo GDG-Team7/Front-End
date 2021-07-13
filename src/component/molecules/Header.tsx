@@ -14,7 +14,7 @@ export interface Props {
 
 const Header = (props: Props) => {
   const history = useHistory();
-  const loggedIn = localStorage.getItem('accessToken');
+  const loggedIn = sessionStorage.getItem('accessToken');
   const {width} = useWindowDimensions();
 
   const onClickStudy = useCallback(() => {

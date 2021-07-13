@@ -8,7 +8,7 @@ interface ProtectedRouteProps extends RouteProps {
 }
 
 const ProtectedRoute = (props: ProtectedRouteProps) => {
-  const loggedIn = localStorage.getItem('accessToken');
+  const loggedIn = sessionStorage.getItem('accessToken');
 
   return loggedIn ? (
     <Route path={props.path} exact={props.exact} component={props.component} />

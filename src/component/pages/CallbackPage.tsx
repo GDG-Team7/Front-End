@@ -9,6 +9,11 @@ interface AccessToken {
   accessToken: string;
 }
 
+interface JWT {
+  accessToken: string;
+  member: string;
+}
+
 interface GitHubResponse {
   id: number;
   email: string;
@@ -30,7 +35,6 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
           `/githubAccessToken?authorizationCode=${code}`,
         );
 
-        localStorage.setItem('accessToken', accessToken);
         /**
          * 1. GitHub Api call to get user data
          * 2. Post to our api for saving user data
@@ -48,13 +52,12 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
 
         dispatch(setUser({github_id: data.id, email: data.email})); // Update UserStore
 
-        const isUser = await request.get<{member: string}>(
-          `/signin/${data.id}`,
-        );
+        const res = await request.get<JWT>(`/signin/${data.id}`);
 
-        if (isUser.data.member === 'false') {
+        if (res.data.member === 'false') {
           history.push('/signup');
-        } else {
+        } else if (res.data.accessToken.length > 0) {
+          sessionStorage.setItem('accessToken', res.data.accessToken);
           history.push('/');
         }
       } catch (error) {
