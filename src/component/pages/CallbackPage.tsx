@@ -35,6 +35,8 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
           `/githubAccessToken?authorizationCode=${code}`,
         );
 
+        sessionStorage.setItem('accessToken', accessToken);
+
         /**
          * 1. GitHub Api call to get user data
          * 2. Post to our api for saving user data
@@ -57,7 +59,6 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
         if (res.data.member === 'false') {
           history.push('/signup');
         } else if (res.data.accessToken.length > 0) {
-          sessionStorage.setItem('accessToken', res.data.accessToken);
           history.push('/');
         }
       } catch (error) {
