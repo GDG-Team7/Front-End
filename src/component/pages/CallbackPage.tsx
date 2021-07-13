@@ -52,13 +52,18 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
           },
         );
 
-        dispatch(setUser({github_id: data.id, email: data.email})); // Update UserStore
-
         const res = await request.get<JWT>(`/signin/${data.id}`);
 
         if (res.data.member === 'false') {
           history.push('/signup');
         } else if (res.data.accessToken.length > 0) {
+          dispatch(
+            setUser({
+              github_id: data.id,
+              email: data.email,
+              accessToken: res.data.accessToken,
+            }),
+          ); // Update UserStore
           history.push('/');
         }
       } catch (error) {
