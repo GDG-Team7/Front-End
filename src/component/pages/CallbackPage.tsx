@@ -5,7 +5,7 @@ import {RouteComponentProps} from 'react-router-dom';
 import request from '../../plugins/axios';
 import {setUser} from '../../slices/user';
 
-interface AccessToken {
+export interface AccessToken {
   accessToken: string;
 }
 
@@ -54,16 +54,23 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
 
         const res = await request.get<JWT>(`/signin/${data.id}`);
 
+        dispatch(
+          setUser({
+            github_id: data.id,
+            email: data.email,
+            accessToken: res.data.accessToken,
+          }),
+        ); // Update UserStore
+
         if (res.data.member === 'false') {
           history.push('/signup');
         } else if (res.data.accessToken.length > 0) {
-          dispatch(
-            setUser({
-              github_id: data.id,
-              email: data.email,
-              accessToken: res.data.accessToken,
-            }),
-          ); // Update UserStore
+          // set axios interceptor token
+          request.interceptors.request.use(config => {
+            config.headers['Authorization'] = `Bearer ${accessToken}`;
+            return config;
+          });
+
           history.push('/');
         }
       } catch (error) {

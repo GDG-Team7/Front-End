@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import Select from 'react-select';
 import styled from 'styled-components';
 import {OPTIONS} from '../../constant/Dropdown';
@@ -11,23 +12,31 @@ import Header from '../molecules/Header';
 import MainRoomCard from '../molecules/MainRoomCard';
 
 const MainTemplate = () => {
+  const history = useHistory();
   const [roomList, setRoomList] = useState<Room[]>([]);
 
   useEffect(() => {
     const getRoomList = async () => {
       const {data} = await request.get('/rooms');
+
       setRoomList(data.rooms);
     };
 
     getRoomList();
   }, []);
+
   return (
     <Container>
       <Header isSearch isMain />
       <TitleContainer>
         <LeftIcon src={IMAGES.mainIcon} />
         <Title>{STRING.MAIN_TITLE}</Title>
-        <RightIcon src={IMAGES.punch} />
+        <RightIcon
+          onClick={() => {
+            history.push('/register/room');
+          }}
+          src={IMAGES.punch}
+        />
         <RightSecondIcon src={IMAGES.deco} />
       </TitleContainer>
       <SelectContainer>
