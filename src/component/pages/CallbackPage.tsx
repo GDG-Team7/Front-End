@@ -19,9 +19,10 @@ interface GitHubResponse {
   email: string;
 }
 
-const setInterceptorToken = (jwt: string) => {
+export const setInterceptorToken = (jwt: string) => {
   request.interceptors.request.use(config => {
     config.headers['Authorization'] = `Bearer ${jwt}`;
+    console.log(jwt);
     return config;
   });
 };

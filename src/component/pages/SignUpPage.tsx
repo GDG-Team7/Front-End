@@ -7,7 +7,7 @@ import {RootState} from '../../rootReducer';
 import {updateUser} from '../../slices/user';
 import {User} from '../../types/user';
 import SignUpTemplate from '../templates/SignUpTemplate';
-import {AccessToken} from './CallbackPage';
+import {AccessToken, setInterceptorToken} from './CallbackPage';
 
 const SignUpPage = ({history}: RouteComponentProps) => {
   const dispatch = useDispatch();
@@ -33,6 +33,9 @@ const SignUpPage = ({history}: RouteComponentProps) => {
             accessToken: data.accessToken,
           }),
         ); // Update accesssToken
+
+        // set axios interceptor token
+        setInterceptorToken(data.accessToken);
 
         history.push('/');
       } catch (error) {
