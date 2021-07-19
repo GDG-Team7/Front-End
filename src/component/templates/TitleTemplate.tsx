@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const TitleTemplate = () => {
   const history = useHistory();
+
   return (
     <TitleBox>
       <Circle></Circle>

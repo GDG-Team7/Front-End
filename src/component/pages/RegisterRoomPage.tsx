@@ -53,7 +53,7 @@ const RegisterRoomPage = ({history}: RouteComponentProps) => {
 
     request
       .post('/room', roomInfo)
-      .then(({data}) => {
+      .then(() => {
         // 방 입장 로직 필요
         history.push('/');
       })
