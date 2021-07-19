@@ -11,13 +11,20 @@ export interface AccessToken {
 
 interface JWT {
   accessToken: string;
-  member: string;
+  member?: string;
 }
 
 interface GitHubResponse {
   id: number;
   email: string;
 }
+
+const setInterceptorToken = (jwt: string) => {
+  request.interceptors.request.use(config => {
+    config.headers['Authorization'] = `Bearer ${jwt}`;
+    return config;
+  });
+};
 
 const CallbackPage = ({history, location}: RouteComponentProps) => {
   const dispatch = useDispatch();
@@ -66,11 +73,7 @@ const CallbackPage = ({history, location}: RouteComponentProps) => {
           history.push('/signup');
         } else if (res.data.accessToken.length > 0) {
           // set axios interceptor token
-          request.interceptors.request.use(config => {
-            config.headers['Authorization'] = `Bearer ${accessToken}`;
-            return config;
-          });
-
+          setInterceptorToken(res.data.accessToken);
           history.push('/');
         }
       } catch (error) {

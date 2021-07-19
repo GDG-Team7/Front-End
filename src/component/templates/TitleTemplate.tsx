@@ -1,11 +1,18 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
 
 const TitleTemplate = () => {
+  const history = useHistory();
   return (
     <TitleBox>
       <Circle></Circle>
-      <Title>코각모</Title>
+      <Title
+        onClick={() => {
+          history.push('/');
+        }}>
+        코각모
+      </Title>
     </TitleBox>
   );
 };
@@ -16,6 +23,7 @@ const TitleBox = styled.div`
   display: flex;
   top: 5px;
   position: relative;
+  cursor: pointer;
 `;
 
 const Circle = styled.div`

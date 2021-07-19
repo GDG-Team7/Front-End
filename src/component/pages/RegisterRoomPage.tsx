@@ -1,11 +1,12 @@
 import React from 'react';
 import {useState} from 'react';
+import {RouteComponentProps} from 'react-router-dom';
 import styled from 'styled-components';
 import {IMAGES} from '../../constant/Images';
 import {STRING} from '../../constant/String';
 import request from '../../plugins/axios';
 
-const RegisterRoomPage = () => {
+const RegisterRoomPage = ({history}: RouteComponentProps) => {
   const [title, setTitle] = useState<string>();
   const [memberLimit, setMemberLimit] = useState<number>(0);
   const [startTime, setStartTime] = useState<string>();
@@ -48,17 +49,16 @@ const RegisterRoomPage = () => {
       language: language,
       annual_min: 0,
       annual_max: annual_max,
-      authData: 0,
     };
 
     request
       .post('/room', roomInfo)
       .then(({data}) => {
         // 방 입장 로직 필요
-        console.log(data);
+        history.push('/');
       })
       .catch(err => {
-        console.log(err);
+        console.error(`something error occurrence = ${err}`);
       });
   };
 
@@ -95,14 +95,14 @@ const RegisterRoomPage = () => {
               <ItemTitle>모임시작일시</ItemTitle>
               <ItemSelect onChange={handleStartTime}>
                 <option value="">Select...</option>
-                <option value="2021-07-11">2021-07-11</option>
+                <option value="2021-07-19">2021-07-19</option>
               </ItemSelect>
             </TitleBox>
             <TitleBox>
               <ItemTitle>모임종료일시</ItemTitle>
               <ItemSelect onChange={handleEndTime}>
                 <option value="">Select...</option>
-                <option value="2021-07-12">2021-07-12</option>
+                <option value="2021-08-12">2021-08-12</option>
               </ItemSelect>
             </TitleBox>
           </SelectLine>
