@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import MainTemplate from '../templates/MainTemplate';
 
 const MainPage = () => {
-  return <div>MainPage</div>
-}
+  return <MainTemplate />;
+};
 
-export default MainPage
+export default MainPage;
